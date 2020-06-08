@@ -1,0 +1,1 @@
+{"bitcoin":{"usd":7112.3199999999997},"ethereum":{"usd":179.12},"ripple":{"usd":0.19083},"litecoin":{"usd":42.310000000000002},"bitcoin-cash":{"usd":232.72}}

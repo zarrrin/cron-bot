@@ -41,9 +41,10 @@ function do1() {
     // writes to last.txt the prices to calculate price changes
     $res = json_encode($res);
     $last = file_put_contents('last.txt', $res);
-   
+    $bot_token = getenv('TOKEN');
+    $channel_username = getenv('CH_USERNAME');
     // sends the request in Markdown modes
-    file_get_contents('https://api.telegram.org/bot123456:abcdef/sendMessage?chat_id=@CHANNELUSERNAME&text='.$texttt.'&parse_mode=markdown');
+    file_get_contents('https://api.telegram.org/bot'.$bot_token.'/sendMessage?chat_id=@'.$channel_username.'&text='.$texttt.'&parse_mode=markdown');
 }
 $text = do1();
 ?>

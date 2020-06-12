@@ -15,7 +15,7 @@ function do1() {
     $XRPper = floatval($res->ripple->usd/$last->ripple->usd)*100 - 100;
     $LTCper = floatval($res->litecoin->usd/$last->litecoin->usd)*100 - 100;
     $BCHper = floatval($res->{'bitcoin-cash'}->usd/$last->{'bitcoin-cash'}->usd)*100 - 100;
-
+    $ADAper = floatval($res->cardano->usd/$last->cardano->usd)*100 - 100;
     //show 3 decimal points
 	$BTCper = strval(sprintf("%.3f", $BTCper));
 	$ETHper = strval(sprintf("%.3f", $ETHper));
@@ -34,6 +34,8 @@ function do1() {
             " LTC:  $".$res->litecoin->usd."  (*". $LTCper ."%*) %0A".
             ($last->{'bitcoin-cash'}->usd > $res->{'bitcoin-cash'}->usd ? "🔴":"🔵").
             " BCH:  $".$res->{'bitcoin-cash'}->usd."  (*". $BCHper ."%*) %0A".
+            ($last->cardano->usd > $res->cardano->usd ?  "🔴":"🔵").
+            " Ada: $".$res->cardano->usd."  (*". $ADAper ."%*) %0A".
             "%0A@ZarrrinCryptoPrice";
 
     // writes to last.txt the prices to calculate price changes

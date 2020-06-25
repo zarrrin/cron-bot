@@ -1,5 +1,0 @@
-{
-    "require": {
-        "jaggedsoft/php-binance-api": "@dev"
-    }
-}

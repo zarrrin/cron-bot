@@ -1,9 +1,17 @@
 <?php
 require 'config.php';
+require 'vendor/autoload.php';
+
+$api = new Binance\API( $API_KEY, $API_SECRET);
+
+
+function getPrices() {
+
+}
 
 function do1() {
     $res = file_get_contents('./price.php');
-    // reads last.txt if not exists to calculate price changes
+    // reads last.txt if exists to calculate price changes
     if (file_exists('last.txt')) {
         $last = file_get_contents('last.txt');
         $last = json_decode($last);
@@ -43,6 +51,7 @@ function do1() {
     $res = json_encode($res);
     $last = file_put_contents('last.txt', $res);
     // sends the request in Markdown modes
+    $texttt = $price = $api->price("BNBBTC");
     file_get_contents('https://api.telegram.org/bot'.$TOKEN.'/sendMessage?chat_id=@'.$CH_USERNAME.'&text='.$texttt.'&parse_mode=markdown');
 }
 $text = do1();

@@ -1,6 +1,6 @@
 <?php
 require 'config.php';
-date_default_timezone_set("asia/tehran");
+
 function do1() {
     $res = file_get_contents('./price.php');
     // reads last.txt if not exists to calculate price changes

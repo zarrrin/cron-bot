@@ -36,7 +36,7 @@ function do1() {
             ($last->bch > $res->bch ? "ðŸ”´":"ðŸ”µ").
             " BCH:  $".$res->bch."  (*". $BCHper ."%*) %0A".
             ($last->ada > $res->ada ?  "ðŸ”´":"ðŸ”µ").
-            " Ada: $".$res->ada."  (*". $ADAper ."%*) %0A".
+            " ADA: $".$res->ada."  (*". $ADAper ."%*) %0A".
             "%0A@ZarrrinCryptoPrice";
 
     // writes to last.txt the prices to calculate price changes

@@ -14,17 +14,17 @@ if ($callback_data == 'now') {
     $btc = $answerText->btc;
     $eth = $answerText->eth;
     $xrp = $answerText->xrp;
-    $ltc = $answerText->ltc;
+    $link = $answerText->link;
     $bch = $answerText->bch;
-    $ada = $answerText->ada;
+    $bnb = $answerText->bnb;
 $answerText = "⚡ Prices Right Now :
 
-BTC: ${btc}$
-ETH: ${eth}$
-XRP: ${xrp}$
-LTC: ${ltc}$
-BCH: ${bch}$
-ADA: ${ada}$
+BTC: \$${btc}
+ETH: \$${eth}
+XRP: \$${xrp}
+LINK: \$${link}
+BCH: \$${bch}
+BNB: \$${bnb}
 ";
     $content = array('callback_query_id' => $callback_query["id"], 'text' => $answerText, 'show_alert' => true);
     $telegram->answerCallbackQuery($content);
@@ -46,16 +46,16 @@ if( isset($_GET['do']) ){
             $BTCper = floatval($res->btc/$last->btc)*100 - 100;
             $ETHper = floatval($res->eth/$last->eth)*100 - 100;
             $XRPper = floatval($res->xrp/$last->xrp)*100 - 100;
-            $LTCper = floatval($res->ltc/$last->ltc)*100 - 100;
+            $LINKper = floatval($res->link/$last->link)*100 - 100;
             $BCHper = floatval($res->bch/$last->bch)*100 - 100;
-            $ADAper = floatval($res->ada/$last->ada)*100 - 100;
+            $BNBper = floatval($res->bnb/$last->bnb)*100 - 100;
             //show 3 decimal points
         	$BTCper = strval(sprintf("%.3f", $BTCper));
         	$ETHper = strval(sprintf("%.3f", $ETHper));
         	$XRPper = strval(sprintf("%.3f", $XRPper));
-        	$LTCper = strval(sprintf("%.3f", $LTCper));
+        	$LINKper = strval(sprintf("%.3f", $LINKper));
         	$BCHper = strval(sprintf("%.3f", $BCHper));
-        	$ADAper = strval(sprintf("%.3f", $ADAper));
+        	$BNBper = strval(sprintf("%.3f", $BNBper));
         
                 $texttt =
                     ($last->btc > $res->btc ? "🔴":"🔵").
@@ -65,11 +65,11 @@ if( isset($_GET['do']) ){
                     ($last->xrp > $res->xrp ? "🔴":"🔵").
                     " XRP:  $".$res->xrp."  (*". $XRPper ."%*) \n".
                     ($last->ltc > $res->ltc ? "🔴":"🔵").
-                    " LTC:  $".$res->ltc."  (*". $LTCper ."%*) \n".
+                    " LINK:  $".$res->link."  (*". $LINKper ."%*) \n".
                     ($last->bch > $res->bch ? "🔴":"🔵").
                     " BCH:  $".$res->bch."  (*". $BCHper ."%*) \n".
                     ($last->ada > $res->ada ?  "🔴":"🔵").
-                    " ADA: $".$res->ada."  (*". $ADAper ."%*) \n".
+                    " BNB: $".$res->bnb."  (*". $BNBper ."%*) \n".
                     "\n @ZarrrinCryptoPrice";
         
             // writes to last.txt the prices to calculate price changes

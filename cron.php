@@ -10,7 +10,7 @@ $callback_chat_id  = $telegram->Callback_ChatID();
 $message_id        = $telegram->MessageID();
 
 if ($callback_data == 'now') {
-    $answerText = json_decode( file_get_contents("path to price.php but interpreted") );
+    $answerText = json_decode( file_get_contents($price_path) );
     $btc = $answerText->btc;
     $eth = $answerText->eth;
     $xrp = $answerText->xrp;
@@ -35,7 +35,7 @@ if( isset($_GET['do']) ){
     if($_GET['do'] == 'passed argument') {
         function do1() {
             $telegram = $GLOBALS["telegram"];
-            $res = file_get_contents('path to price.php but interpreted');
+            $res = file_get_contents($price_path);
             // reads last.txt if exists to calculate price changes
             if (file_exists('last.txt')) {
                 $last = file_get_contents('last.txt');

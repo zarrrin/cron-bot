@@ -1,6 +1,7 @@
 <?php
 include 'Telegram.php';
 include 'config.php';
+include 'currencies.php';
 $telegram          = new Telegram($TOKEN);
 $chat_id           = $telegram->ChatID();
 $text              = $telegram->Text();
@@ -17,6 +18,7 @@ if ($callback_data == 'now') {
     $link = $answerText->link;
     $bch = $answerText->bch;
     $bnb = $answerText->bnb;
+
 $answerText = "⚡ Prices Right Now :
 
 BTC: \$${btc}

@@ -1,6 +1,6 @@
 <?php
 header("content-type: application/json");
-$currencies = ['btc','eth','xrp','link','bch','bnb'];
+include 'currencies.php';
 foreach ($currencies as $currency){
   $$currency = sprintf("%.4f",json_decode(file_get_contents("https://www.binance.com/api/v3/avgPrice?symbol=${currency}USDT"))->price);
 }

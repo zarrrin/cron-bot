@@ -35,7 +35,7 @@ if( isset($_GET['do']) ){
     if($_GET['do'] == 'passed argument') {
         function do1() {
             $telegram = $GLOBALS["telegram"];
-            $res = file_get_contents($price_path);
+            $res = file_get_contents($GLOBALS['price_path']);
             // reads last.txt if exists to calculate price changes
             if (file_exists('last.txt')) {
                 $last = file_get_contents('last.txt');
@@ -49,6 +49,7 @@ if( isset($_GET['do']) ){
             $LINKper = floatval($res->link/$last->link)*100 - 100;
             $BCHper = floatval($res->bch/$last->bch)*100 - 100;
             $BNBper = floatval($res->bnb/$last->bnb)*100 - 100;
+
             //show 3 decimal points
         	$BTCper = strval(sprintf("%.3f", $BTCper));
         	$ETHper = strval(sprintf("%.3f", $ETHper));

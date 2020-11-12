@@ -59,14 +59,10 @@ if( isset($_GET['do']) ){
             
             
             $option = array( 
-        
-                        array(
-       
-                                $telegram->buildInlineKeyboardButton("Live Price","","now","")
-        
-                        )
-        
-                );
+                array(
+                    $telegram->buildInlineKeyboardButton("Live Price","","now","")
+                )
+            );
         
                 $keyb = $telegram->buildInlineKeyBoard($option);
                 $CH_USERNAME = $GLOBALS['CH_USERNAME'];

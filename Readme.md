@@ -2,6 +2,4 @@
 
 change `config-sample.php` values and rename it to `config.php`
 
-then add cron.php to your cron manager app
-
-config lines 13 and 38 to get prices
+then add cron.php to your cron manager

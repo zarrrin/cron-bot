@@ -1,10 +1,12 @@
 <?php
-    $url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false';
+    $url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=11&page=1&sparkline=false';
     $json = file_get_contents($url);
     $data = json_decode($json, true);
     $currencies = [];
     foreach ($data as $key => $value) {
         // push to array
-        array_push($currencies, $value['symbol']);
+        if ($value['symbol'] != 'usdt') {
+            array_push($currencies, $value['symbol']);
+        }
     }
 ?>

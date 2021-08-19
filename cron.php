@@ -39,8 +39,12 @@ if( isset($_GET['do']) ){
             }
             
             foreach($GLOBALS['currencies'] as $cur) {
-                $$cur = floatval($res->{"${cur}"}/$last->{"${cur}"})*100 - 100;
-                $$cur = strval(sprintf("%.3f", $$cur));
+                if ($last->{"${cur}"} == 0) {
+                    $$cur = "Initiated Now";
+                }else{
+                    $$cur = floatval($res->{"${cur}"}/$last->{"${cur}"})*100 - 100;
+                    $$cur = strval(sprintf("%.3f", $$cur));
+                }
             }
                 
                 $blueBall = "🔵";

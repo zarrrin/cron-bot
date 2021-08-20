@@ -5,7 +5,7 @@
     $currencies = [];
     foreach ($data as $key => $value) {
         // push to array
-        if ($value['symbol'] != 'usdt') {
+        if ($value['symbol'] != 'usdt' || $value['symbol'] != 'usdc') {
             array_push($currencies, $value['symbol']);
         }
     }

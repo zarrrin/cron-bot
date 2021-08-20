@@ -1,4 +1,5 @@
 <?php
+// tel: blackestwhite at telegram
 include 'Telegram.php';
 include './config.php';
 include 'currencies.php';

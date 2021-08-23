@@ -74,7 +74,7 @@ if( isset($_GET['do']) ){
                 $CH_USERNAME = $GLOBALS['CH_USERNAME'];
                 $content = array('chat_id' => $CH_USERNAME, 'text' => $textTxt ,'parse_mode' => 'markdown' ,'reply_markup' => $keyb);
 
-                if ($content != $GLOBALS['CH_USERNAME']){
+                if ($content != ("\n".$GLOBALS['CH_USERNAME'])){
                     $telegram->sendMessage($content);
                 }
         }

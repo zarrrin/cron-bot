@@ -73,8 +73,10 @@ if( isset($_GET['do']) ){
                 $keyb = $telegram->buildInlineKeyBoard($option);
                 $CH_USERNAME = $GLOBALS['CH_USERNAME'];
                 $content = array('chat_id' => $CH_USERNAME, 'text' => $textTxt ,'parse_mode' => 'markdown' ,'reply_markup' => $keyb);
-        
-                $telegram->sendMessage($content);
+
+                if ($content != $GLOBALS['CH_USERNAME']){
+                    $telegram->sendMessage($content);
+                }
         }
         $text = do1();
         
